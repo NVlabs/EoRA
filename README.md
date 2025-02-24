@@ -7,6 +7,10 @@ LLM with Eigenspace Low-Rank Approximation</p>
     <img src="./imgs/new_eora_fig.png" width="600">
 </h1>
 
+# Code to reproduce the paper results will be released soon
+# For compensating Quantized LLM with EoRA, please refer to GPTQModel [HERE](https://github.com/ModelCloud/GPTQModel), we will upload a comprenhensive documentation soon which also includes our EoRA kernel!
+
+
 The Official PyTorch implementation of [**EoRA: Training-free Compensation for Compressed
 LLM with Eigenspace Low-Rank Approximation**](https://arxiv.org/abs/2410.21271).
 
