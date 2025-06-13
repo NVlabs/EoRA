@@ -50,7 +50,7 @@ from gptqmodel import GPTQModel, QuantizeConfig
 
 eora = Lora(
   # for eora generation, path is adapter save path; for load, it is loading path
-  path=f"{quant_path}/eora_rank32", 
+  path=f"{quant_path}/eora_rank16", 
   rank=16,
 )
 
