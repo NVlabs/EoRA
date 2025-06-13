@@ -1,0 +1,5 @@
+transformers==4.36.0
+datasets==2.18.0
+sentencepiece==0.2.0
+protobuf==3.20.1
+lm-eval==0.3.0
