@@ -84,7 +84,7 @@ python GPTQModel/examples/eora/evaluation.py --quantized_model quant_path \
 
 
 # Reproducing Paper Results
-You can find full reproduction instructions in the /EoRA/ directory.
+You can find full reproduction instructions in the [EoRA](https://github.com/NVlabs/EoRA/tree/main/EoRA) directory.
 
 
 
