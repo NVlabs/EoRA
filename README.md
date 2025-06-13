@@ -1,6 +1,5 @@
 <h1 align="center">
-    <p> EoRA: Training-free Compensation for Compressed
-LLM with Eigenspace Low-Rank Approximation</p>
+    <p> EoRA: Fine-tuning-free Compensation for Compressed LLM with Eigenspace Low-Rank Approximation</p>
 </h1>
 
 <h1 align="center"> 
