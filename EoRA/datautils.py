@@ -174,7 +174,7 @@ def get_gsm8k_c4(nsamples, seed, seqlen, model):
     import random
     random.seed(seed)
     trainloader = []
-    gsm8k_namsples = int(64)
+    gsm8k_namsples = int(32)
     print(f"gsm8k {gsm8k_namsples}")
     i = 0
     for _ in range(gsm8k_namsples):
