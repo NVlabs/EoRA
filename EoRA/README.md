@@ -7,7 +7,7 @@ conda activate eora
 pip install -r requirements.txt
 ```
 
-## Step 2: Compile CUDA Kernels
+## Step 2: Compile CUDA Kernels (Optional)
 ```bash
 python setup_cuda.py install
 ```
