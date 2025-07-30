@@ -187,11 +187,11 @@ def load_quant3_llama(model):
             del layers[name]
     #  '3_bit', '3_bit_wo_fuse', '3_bit_fuse',
     if args.inference_type == '3_bit':
-        make_quant3_llama(model, layers, faster=args.faster_kernel)
+        make_quant3_llama(model, layers)
     elif args.inference_type == '3_bit_wo_fuse':
-        make_quant3_normal_eora_llama(model, layers, faster=args.faster_kernel)
+        make_quant3_normal_eora_llama(model, layers)
     elif args.inference_type == '3_bit_fuse':
-        make_quant3_fused_eora_llama(model, layers, faster=args.faster_kernel)
+        make_quant3_fused_eora_llama(model, layers)
     print(model)
     model.seqlen = model.config.max_position_embeddings
     print('Done.')
@@ -352,11 +352,11 @@ def load_quant4_llama(model):
         if name in layers:
             del layers[name]
     if args.inference_type == '4_bit':
-        make_quant4_llama(model, layers, faster=args.faster_kernel)
+        make_quant4_llama(model, layers)
     elif args.inference_type == '4_bit_wo_fuse':
-        make_quant4_normal_eora_llama(model, layers, faster=args.faster_kernel)
+        make_quant4_normal_eora_llama(model, layers)
     elif args.inference_type == '4_bit_fuse':
-        make_quant4_fused_eora_llama(model, layers, faster=args.faster_kernel)
+        make_quant4_fused_eora_llama(model, layers)
     print(model)
     model.seqlen = model.config.max_position_embeddings
     print('Done.')
