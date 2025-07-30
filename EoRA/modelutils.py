@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-from hadamard import random_hadamard_matrix
 import functools
 
 DEV = torch.device('cuda:0')
