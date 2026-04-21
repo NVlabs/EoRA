@@ -1,5 +1,5 @@
 <h1 align="center">
-    <p> EoRA: Fine-tuning-free Compensation for Compressed LLM with Eigenspace Low-Rank Approximation</p>
+    <p> [ICLRW'26] EoRA: Fine-tuning-free Compensation for Compressed LLM with Eigenspace Low-Rank Approximation</p>
 </h1>
 
 <h1 align="center"> 
@@ -20,7 +20,7 @@ For business inquiries, please visit our website and submit the form: [NVIDIA Re
 ## 💥 News 💥
 - **[March 2, 2026]** 🔥🔥 EoRA is accepted to [**ICLR 2026**](https://iclr.cc/Conferences/2026) for both [ICBINB](https://sites.google.com/view/icbinb-2026/home) and [TTU](https://ttu-iclr2026.github.io/) workshops!! See you in Rio de Janeiro, Brazil!!
 - **[June 13, 2025]** 🔥🔥 Release the code for reproducing the paper's results!!
-- **[June 9, 2025]** 🔥🔥 The official NVIDIA Tech Blog of DoRA is released [HERE](https://developer.nvidia.com/blog/a-fine-tuning-free-approach-for-rapidly-recovering-llm-compression-errors-with-eora/)!!
+- **[June 9, 2025]** 🔥🔥 The official NVIDIA Tech Blog of EoRA is released [HERE](https://developer.nvidia.com/blog/a-fine-tuning-free-approach-for-rapidly-recovering-llm-compression-errors-with-eora/)!!
 - **[May 15, 2025]** 🔥🔥 Check out an awesome blog post [2-bit+EoRA](https://towardsdatascience.com/boost-2-bit-llm-accuracy-with-eora/) which shows that EoRA significantly boost 2-Bit LLM accuracy without training!!
 - **[February 24, 2025]** 🔥🔥 EoRA has been integrated into GPTQModel [HERE](https://github.com/ModelCloud/GPTQModel/tree/main/examples/eora)!!
 
