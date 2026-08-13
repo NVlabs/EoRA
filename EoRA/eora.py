@@ -7,7 +7,8 @@ from sparsegpt import *
 from modelutils import *
 from quant import *
 from evaluate_utils import evaluate_model
-from gptq import * 
+from gptq import *
+from eigen_lora import compute_eora_lora
 from safetensors.torch import save_file
 import json
 import tqdm
@@ -478,36 +479,14 @@ def llama_sequential_eigen(model, dataloader, compressed_weights, dev):
                 delta = original_weight - compressed_weight
 
                 raw_scaling_diag_matrix = subset_eigen_scaling_diag_matrix[name].double().to("cuda")
-                
-                L, Q = torch.linalg.eigh(raw_scaling_diag_matrix)
-                if (L < 0).any().item():
-                    print(f"found negative eigenvalues in {name}")
-                    minimum = torch.min(L[L > 0])
-                    L[L < 0] = minimum
 
-                sqrtEigenvalues = torch.sqrt(L)
-                scaling_diag_matrix = Q @ torch.diag(sqrtEigenvalues)
-                scaling_matrix_inv = torch.diag(1/sqrtEigenvalues) @ Q.T
-
-                scaling_diag_matrix = scaling_diag_matrix.float()
-                scaling_matrix_inv = scaling_matrix_inv.float()
-                
-                delta_scale = torch.matmul(delta.to(torch.float32), scaling_diag_matrix)
-
-                r=args.eigen_r
-
-                U, S, VT = torch.linalg.svd(delta_scale, full_matrices=False)
-                num_s_after_trunc = r
-                truc_s = S[:num_s_after_trunc]
-                truc_u = U[:, :num_s_after_trunc]
-                truc_v = torch.matmul(VT[:num_s_after_trunc, :], scaling_matrix_inv)
-                truc_sigma = torch.diag(truc_s)
-                
-                sqrtSigma = torch.sqrt(truc_sigma)
-                B = torch.matmul(truc_u, sqrtSigma).to(compressed_weight.dtype)
-                A = torch.matmul(sqrtSigma, truc_v).to(compressed_weight.dtype)
-
-                comp_weight = compressed_weight + B@A
+                A, B = compute_eora_lora(
+                    delta,
+                    raw_scaling_diag_matrix,
+                    args.eigen_r,
+                    compressed_weight.dtype,
+                )
+                comp_weight = compressed_weight + B @ A
 
                 subset[name].weight.data = comp_weight.to(subset[name].weight.data.dtype)
                 
