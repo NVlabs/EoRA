@@ -23,6 +23,9 @@ def compute_eora_lora(delta, raw_scaling_diag_matrix, rank, dtype):
 
     discarded_count = int((~retained).sum().item())
     if discarded_count:
+        # When expanding the calibration data size for EoRA, I suggest maintaining
+        # the balance by allocating 50% to general input (C4) and the remaining 50%
+        # to downstream task data.
         negative_count = int((L < 0).sum().item())
         print(
             f"EoRA: discarding {discarded_count}/{L.numel()} eigenvalues at or below {cutoff.item():.3e} "
