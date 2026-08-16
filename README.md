@@ -97,7 +97,7 @@ python GPTQModel/examples/eora/evaluation.py --quantized_model quant_path
 #### Evaluting EoRA
 ```
 python GPTQModel/examples/eora/evaluation.py --quantized_model quant_path \
-    --eora_save_path {quant_path}/eora_rank32 \
+    --eora_save_path {quant_path}/eora_rank16 \
     --eora_rank 16
 ```
 
